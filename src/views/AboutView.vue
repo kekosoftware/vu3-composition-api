@@ -1,11 +1,15 @@
 <template>
-    <h1>About page</h1>
+    <div>
+        <h1>Componentes</h1>
+        <hr />
+
+        <counter />
+    </div>
 </template>
 
-<script>
-export default {
+<script setup>
+import Counter from '@/components/Counter.vue'
 
-}
 </script>
 
 <style>
