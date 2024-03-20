@@ -3,34 +3,39 @@
     <hr />
 
     <form action="">
-        <input type="text" v-model="nombre">
-        <select v-model="nivel" name="nivel">
-            <option value="" disabled>Seleccioina un nivel</option>
-            <option value="Basico">Basico</option>
-            <option value="Intermedio">Intermedio</option>
-            <option value="Avanzado">Avanzado</option>
-        </select>
+        <div>
+            <label for="">
+                Tecnologías: 
+                <input type="number" min="1" max="5" v-model="formulario.numero">
+            </label>
+        </div>
+        <div v-for="numero in formulario.numero" :key="numero">
+            <label for="">
+                Tecnología #{{ numero }}&nbsp;
+            </label>
+            <input type="text" v-model="formulario.nombre[numero -1]">
+            <select v-model="formulario.nivel[numero -1]" name="nivel">
+                <option value="" disabled>Seleccioina un nivel</option>
+                <option value="Basico">Basico</option>
+                <option value="Intermedio">Intermedio</option>
+                <option value="Avanzado">Avanzado</option>
+            </select>
+        </div>
     </form>
 
-    <h3>{{ nombre }} -  {{ nivel }}</h3>
+    <h3>{{ formulario.nombre }} -  {{ formulario.nivel }}</h3>
 
-    {{ msg }}
 </template>
 
 <script setup>
-// Compostion API
-import { ref } from 'vue'
+import { reactive } from 'vue'
 
-const nombre = ref("Vue.js")
-const nivel = ref("")
+const formulario = reactive({
+    nombre: [],
+    nivel: [],
+    numero: 1,
+})
 
-
-// Option API
-// export default {
-    // data: () => ({
-    //     msg: "uaslf",
-    // })
-// }
 </script>
 
 <style>
