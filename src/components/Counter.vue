@@ -1,8 +1,9 @@
 <template>
     <div>
         <h3>Valor: {{ count }}</h3>
-        <button @click="aumentar">+1</button>
-        <button @click="disminuir">-1</button>
+
+        <Button @cambiar="aumentar" title="Aumentar" />
+        <Button @cambiar="disminuir" title="Disminuir"/>
     
         <h4>IVA (21%): {{ iva }}%</h4>
     </div>
@@ -11,6 +12,7 @@
 
 <script setup>
 import { ref, computed, defineProps } from "vue";
+import Button from './Button.vue';
 
 const props = defineProps({
     initialValue: {
