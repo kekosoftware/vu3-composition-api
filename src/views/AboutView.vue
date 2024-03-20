@@ -1,8 +1,5 @@
 <template>
     <div>
-        <h1>Componentes</h1>
-        <hr />
-
         <counter />
     </div>
 </template>
