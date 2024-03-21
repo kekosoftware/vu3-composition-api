@@ -1,6 +1,6 @@
 <template>
     <div>
-        <counter :initialValue="100" />
+        <counter :initialValue="200" />
         <counter />
     </div>
 </template>

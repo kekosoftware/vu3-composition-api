@@ -11,8 +11,9 @@
 </template>
 
 <script setup>
-import { ref, computed, defineProps } from "vue";
+import { defineProps } from "vue";
 import Button from './Button.vue';
+import { useCounter } from '../composables/useCounter'
 
 const props = defineProps({
     initialValue: {
@@ -21,18 +22,11 @@ const props = defineProps({
     }
 })
 
-const count = ref(props.initialValue)
+const { count, aumentar, disminuir, iva } = useCounter(props.initialValue)
 
-const aumentar = () => {
-    count.value++
-}
+// composables
 
-const disminuir = () => {
-    count.value--
-}
 
-const iva = computed(() => 
-    count.value * 1.21
-)
+
 
 </script>

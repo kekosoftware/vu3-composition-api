@@ -1,9 +1,10 @@
 <template>
     
-    <button @click="$emit('cambiar')">{{ title }}</button>
+    <button @click="emit('cambiar')">{{ title }}</button>
 </template>
 
 <script setup>
+import { defineProps, defineEmits } from 'vue';
 
 const props = defineProps({
     title: {
@@ -16,5 +17,7 @@ const props = defineProps({
         
     },
 })
+
+const emit = defineEmits(['cambiar'])
 
 </script>
