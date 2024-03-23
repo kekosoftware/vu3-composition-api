@@ -1,15 +1,22 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+    <div>
+        <counter :initialValue="200" />
+        <counter />
+    </div>
 </template>
 
+<script setup>
+import Counter from '@/components/Counter.vue'
+import { useLink, useRouter } from 'vue-router';
+
+// const router = useRouter();
+
+// const link = useLink();
+
+// console.log(router, link)
+
+</script>
+
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
+
 </style>
