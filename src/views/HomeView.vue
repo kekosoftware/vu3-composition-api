@@ -10,16 +10,7 @@
             </label>
         </div>
         <div v-for="numero in formulario.numero" :key="numero">
-            <label for="">
-                Tecnología #{{ numero }}&nbsp;
-            </label>
-            <input type="text" v-model="formulario.nombre[numero -1]">
-            <select v-model="formulario.nivel[numero -1]" name="nivel">
-                <option value="" disabled>Seleccioina un nivel</option>
-                <option value="Basico">Basico</option>
-                <option value="Intermedio">Intermedio</option>
-                <option value="Avanzado">Avanzado</option>
-            </select>
+            <Inputs :numero="numero" :formulario="formulario" />
         </div>
     </form>
 
@@ -29,6 +20,7 @@
 
 <script setup>
 import { reactive } from 'vue'
+import Inputs from "../components/Inputs.vue"
 
 const formulario = reactive({
     nombre: [],
